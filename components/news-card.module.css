@@ -1,0 +1,34 @@
+.main-wrapper{
+    width: 100%;
+    border: 1px solid black;
+    max-width: 300px;
+}
+.img-wrapper{
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+.author{
+    font-size: 26px;
+    font-weight: 500;
+}
+.title{
+    font-size: 20px;
+}
+.description{
+    font-size: 18px;
+    height: 8ch;
+    overflow: hidden;
+}
+.content{
+    height: 12ch;
+    overflow: hidden;
+}
