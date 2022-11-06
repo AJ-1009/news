@@ -4,28 +4,16 @@ import Navbar from "../../components/Navbar";
 import NewsCard from "../../components/NewsCard";
 const channel = [
   {
-    name: "ABC NEWS",
-    link: "/entertainment/abc-news",
+    name: "india",
+    link: "/entertainment/in",
   },
   {
-    name: "BBC NEWS",
-    link: "/entertainment/bbc-news",
+    name: "china",
+    link: "/entertainment/ch",
   },
   {
-    name: "BBC SPORTS",
-    link: "/entertainment/bbc-sports",
-  },
-  {
-    name: "THE HINDU",
-    link: "/entertainment/the-hindu",
-  },
-  {
-    name: "CBC NEWS",
-    link: "/entertainment/cbc-news",
-  },
-  {
-    name: "CNN",
-    link: "/entertainment/cnn",
+    name: "usa",
+    link: "/entertainment/us",
   },
 ];
 export default function index() {

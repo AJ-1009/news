@@ -4,28 +4,16 @@ import Navbar from "../../components/Navbar";
 import NewsCard from "../../components/NewsCard";
 const channel = [
   {
-    name: "ABC NEWS",
-    link: "/technology/abc-news",
+    name: "india",
+    link: "/technology/in",
   },
   {
-    name: "BBC NEWS",
-    link: "/technology/bbc-news",
+    name: "china",
+    link: "/technology/cn",
   },
   {
-    name: "BBC SPORTS",
-    link: "/technology/bbc-sports",
-  },
-  {
-    name: "THE HINDU",
-    link: "/technology/the-hindu",
-  },
-  {
-    name: "CBC NEWS",
-    link: "/technology/cbc-news",
-  },
-  {
-    name: "CNN",
-    link: "/technology/cnn",
+    name: "usa",
+    link: "/technology/us",
   },
 ];
 export default function slug() {

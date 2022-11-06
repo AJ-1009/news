@@ -5,28 +5,16 @@ import NewsCard from "../../components/NewsCard";
 
 const channel = [
   {
-    name: "ABC NEWS",
-    link: "/business/abc-news",
+    name: "INDIA",
+    link: "/business/in",
   },
   {
-    name: "BBC NEWS",
-    link: "/business/bbc-news",
+    name: "china",
+    link: "/business/ch",
   },
   {
-    name: "BBC SPORTS",
-    link: "/business/bbc-sports",
-  },
-  {
-    name: "THE HINDU",
-    link: "/business/the-hindu",
-  },
-  {
-    name: "CBC NEWS",
-    link: "/business/cbc-news",
-  },
-  {
-    name: "CNN",
-    link: "/business/cnn",
+    name: "usa",
+    link: "/business/us",
   },
 ];
 
