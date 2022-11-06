@@ -16,7 +16,7 @@ const channel = [
     link: "/health/us",
   },
 ];
-export default function slug() {
+export default function Index() {
   const router = useRouter();
   const [news, setnews] = useState([]);
   const [page, setpage] = useState(1);

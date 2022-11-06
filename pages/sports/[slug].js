@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import NewsCard from "../../components/NewsCard";
 
-export default function slug() {
+export default function Slug() {
   const router = useRouter();
   const [news, setnews] = useState([]);
   const [page, setpage] = useState(1);
