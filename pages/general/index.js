@@ -40,22 +40,22 @@ export default function slug() {
     setpage(page + 1);
     window.scrollTo(top);
   };
-  if (!loading) {
-    return (
-      <div>
-        <Navbar items={channel} />
+  return (
+    <div>
+      <Navbar items={channel} />
+      {!loading && (
         <div className="container">
           {news?.map((details, index) => (
-              <NewsCard details={details} key={index} />
+            <NewsCard details={details} key={index} />
           ))}
         </div>
-        <div className="btn">
-          <div onClick={prev} disabled={true}>
-            &larr; PREVIOUS
-          </div>
-          <div onClick={next}>NEXT &rarr;</div>
+      )}
+      <div className="btn">
+        <div onClick={prev} disabled={true}>
+          &larr; PREVIOUS
         </div>
+        <div onClick={next}>NEXT &rarr;</div>
       </div>
-    );
-  }
+    </div>
+  );
 }

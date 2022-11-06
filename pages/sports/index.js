@@ -24,7 +24,7 @@ export default function slug() {
   useEffect(() => {
     if (!router.isReady) return;
     fetch(
-      `https://newsapi.org/v2/top-headlines?category=sports&language=en&apiKey=${process.env.NEXT_PUBLIC_API_KEY }&page=${page}`
+      `https://newsapi.org/v2/top-headlines?category=sports&language=en&apiKey=${process.env.NEXT_PUBLIC_API_KEY}&page=${page}`
     )
       .then((data) => data.json())
       .then((data) => {
@@ -44,11 +44,13 @@ export default function slug() {
     return (
       <div>
         <Navbar items={channel} />
-        <div className="container">
-          {news?.map((details, index) => (
+        {!loading && (
+          <div className="container">
+            {news?.map((details, index) => (
               <NewsCard details={details} key={index} />
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
         <div className="btn">
           <div onClick={prev} disabled={true}>
             &larr; PREVIOUS

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import NewsCard from "../components/NewsCard";
 
@@ -101,15 +101,36 @@ const links = [
     link: "/sports",
   },
   {
-    name:"entertainment",
-    link:"/entertainment",
+    name: "entertainment",
+    link: "/entertainment",
   },
   {
-    name:'business',
-    link:"/business"
-  }
+    name: "business",
+    link: "/business",
+  },
 ];
 export default function Home() {
+  const [news, setnews] = useState([]);
+  const [loading, setloading] = useState(true);
+  const [page, setpage] = useState(1);
+  useEffect(() => {
+    fetch(
+      `https://newsapi.org/v2/top-headlines?category?&language=en&apiKey=${process.env.NEXT_PUBLIC_API_KEY}&page=${page}`
+    )
+      .then((data) => data.json())
+      .then((data) => {
+        setnews(data.articles);
+        setloading(false);
+      });
+  }, [page]);
+  const prev = () => {
+    setpage(page - 1);
+    window.scrollTo(top);
+  };
+  const next = () => {
+    setpage(page + 1);
+    window.scrollTo(top);
+  };
   return (
     <div>
       <Head>
@@ -118,6 +139,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar items={links} />
+      {!loading && (
+        <div className="container">
+          {news?.map((details, index) => (
+            <NewsCard details={details} key={index} />
+          ))}
+        </div>
+      )}
+      <div className="btn">
+        <div onClick={prev} disabled={true}>
+          &larr; PREVIOUS
+        </div>
+        <div onClick={next}>NEXT &rarr;</div>
+      </div>
     </div>
   );
 }
