@@ -4,14 +4,12 @@ import NewsCard from "../../components/NewsCard";
 
 export default function slug() {
   const router = useRouter();
-  const query = router.query.slug;
   const [news, setnews] = useState([]);
   const [page, setpage] = useState(1);
-  console.log(query);
   useEffect(() => {
     if (!router.isReady) return;
     fetch(
-      `https://newsapi.org/v2/top-headlines?category=sports&country=${router.query.slug}&language=en&apiKey=4a5845cd978b4fe68078ff0ffc2c59b4&page=${page}`
+      `https://newsapi.org/v2/top-headlines?category=sports&country=${router.query.slug}&language=en&apiKey=${process.env.NEXT_PUBLIC_API_KEY }&page=${page}`
     )
       .then((data) => data.json())
       .then((data) => {

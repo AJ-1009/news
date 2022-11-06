@@ -11,7 +11,7 @@ export default function slug() {
   useEffect(() => {
     if (!router.isReady) return;
     fetch(
-      `https://newsapi.org/v2/top-headlines?category=general&country=${router.query.slug}&language=en&apiKey=4a5845cd978b4fe68078ff0ffc2c59b4&page=${page}`
+      `https://newsapi.org/v2/top-headlines?category=general&country=${router.query.slug}&language=en&apiKey=${process.env.NEXT_PUBLIC_API_KEY}&page=${page}`
     )
       .then((data) => data.json())
       .then((data) => {
