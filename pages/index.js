@@ -1,7 +1,9 @@
 import Head from "next/head";
+import Router, { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import NewsCard from "../components/NewsCard";
+import { indexnews } from "./api/news";
 
 const categories = [
   "business",
@@ -111,9 +113,11 @@ const links = [
 ];
 export default function Home() {
   const [news, setnews] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   const [page, setpage] = useState(1);
-  useEffect(() => {
+  const router = useRouter()
+   useEffect(() => {
+    if (!router.isReady) return
     fetch(
       `https://newsapi.org/v2/top-headlines?category?&language=en&apiKey=${process.env.NEXT_PUBLIC_API_KEY}&page=${page}`
     )
@@ -121,8 +125,9 @@ export default function Home() {
       .then((data) => {
         setnews(data.articles);
         setloading(false);
+        console.log(data.articles)
       });
-  }, [page]);
+   }, [page,router.isReady]);
   const prev = () => {
     setpage(page - 1);
     window.scrollTo(top);
